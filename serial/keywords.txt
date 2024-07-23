@@ -1,0 +1,6 @@
+serial    KEYWORD1
+
+obtemPosicaoVetorString   KEYWORD2
+obtemSubstringVetorString KEYWORD2
+retornaTamanhoVetorString KEYWORD2
+removeCaractere           KEYWORD2

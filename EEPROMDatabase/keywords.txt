@@ -1,0 +1,5 @@
+EEPROMDatabase    KEYWORD1
+
+gravarConfiguracao          KEYWORD2
+gravaConfiguracaoSetores    KEYWORD2
+recuperaConfiguracaoSetores KEYWORD2

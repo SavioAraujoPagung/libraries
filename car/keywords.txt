@@ -1,0 +1,15 @@
+line_follower_engine    KEYWORD1
+
+Sensor          KEYWORD2
+start_sensor    KEYWORD2
+adc_desativa    KEYWORD2
+update_sensor   KEYWORD2
+get_intensity   KEYWORD2
+get_debug       KEYWORD2
+calculate_error KEYWORD2
+in_line         KEYWORD2
+
+Engine      KEYWORD2
+get_pin_one KEYWORD2
+get_pin_two KEYWORD2
+SetPower    KEYWORD2

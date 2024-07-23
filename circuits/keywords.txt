@@ -1,0 +1,5 @@
+configuration    KEYWORD1
+
+Configuracao           KEYWORD2
+insereValorCalibracao  KEYWORD2
+inicioCalibracao       KEYWORD2
