@@ -1,4 +1,4 @@
-#include "configuration.h"
+#include "configuracao.h"
 
 Configuracao::Configuracao(int id, float p, float d, float i, int16_t velocidade, uint32_t tempo, int32_t erroAcumulado) 
 {
@@ -55,7 +55,7 @@ static bool Configuracao::calibraVeiculo(Configuracao setores[]){
 
   // if(quantidadeIndices == 0) return false; //algum erro ocorreu
   
-  // for(uint8_t i=0; i < quantidadeIndices-1; i++){//o ultimo indice é vazio
+  // for(uint8_t i=0; i < quantidadeIndices-1; i++){// 
   //   Serializacao::obtemSubstringVetorString(linhaTemp,"leituraSerial",'{','}',i+1);
   //   Serializacao::removeCaractere(linhaTemp, '"');
 
@@ -73,16 +73,4 @@ static bool Configuracao::calibraVeiculo(Configuracao setores[]){
   // }
 
   return true;
-}
-
-static void Configuracao::inicioCalibracao(Configuracao setores[]) {
-  for(uint8_t setor = 0; setor < QUANTIDADE_SETORES; setor++){
-    setores[setor].p=0.7;
-    setores[setor].d=20;
-    //calibracao[k].ladoPista=1;
-    setores[setor].velocidade=50;
-    //calibracao[k].tempoIgnoraSetor=100;
-    //calibracao[k].tempoMudaSetor=100;
-    //calibracao[k].tempoForaLinha=200;
-  }
 }

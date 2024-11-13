@@ -1,4 +1,4 @@
-configuration    KEYWORD1
+configuracao    KEYWORD1
 
 Configuracao           KEYWORD2
 insereValorCalibracao  KEYWORD2

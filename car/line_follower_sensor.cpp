@@ -11,7 +11,7 @@
 
 Sensor::Sensor(){
     debug=0;
-}   
+} 
 
 uint8_t Sensor::get_debug(){
   return debug;

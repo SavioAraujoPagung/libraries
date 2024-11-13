@@ -1,17 +1,21 @@
 #include "EEPROMDatabase.h"
 
-static void Database::gravarConfiguracao(char* data) {
+static void Database::_gravarConfiguracao(char* data) {
   uint16_t posicaoMemoria = ENDERECO_BASE + sizeof(char) * sizeof(data);
   EEPROM.put(posicaoMemoria, data); 
 }
 
 static void Database::gravaConfiguracaoSetores(char** datas){
+  if (datas == NULL) {
+    return;
+  }
+
   EEPROM.put(ENDERECO_SETOR_INICIAL, 0);
   EEPROM.put(ENDERECO_PULSOS_LIMITE, 0);
   EEPROM.put(ENDERECO_PULSOS_MARCACAO, 0);
 
   for(uint16_t i=0; i < QUANTIDADE_SETORES; i++){
-    gravarConfiguracao(datas[i]);
+    _gravarConfiguracao(datas[i]);
   }
 }
 

@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #define ENDERECO_BASE 200
+
 #define ENDERECO_SETOR_INICIAL 198
 #define ENDERECO_PULSOS_LIMITE 196
 #define ENDERECO_PULSOS_MARCACAO 194
@@ -14,13 +15,11 @@
 class Database
 {
   private: 
-    static void gravarConfiguracao(char* data);
+    static void _gravarConfiguracao(char* data);
 
   public: 
     static void gravaConfiguracaoSetores(char** datas);
     static void recuperaConfiguracaoSetores(char** datas);
 };
-
-
 
 #endif

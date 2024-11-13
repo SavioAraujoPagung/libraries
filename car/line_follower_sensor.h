@@ -36,10 +36,10 @@ class Sensor{
         bool update_sensor();
         uint8_t get_intensity(uint8_t i);
         uint8_t get_debug();
+        
         static float calculate_error(int16_t a, int16_t b);
         static bool in_line(int16_t sensor);
         static bool in_line(uint8_t e, uint8_t d);
 };
-
 
 #endif

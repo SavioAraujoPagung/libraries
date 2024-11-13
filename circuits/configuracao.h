@@ -5,10 +5,10 @@
 #define FORA 10
 #define QUANTIDADE_SETORES 15
 
-class Setting {
+class Configuracao {
   public:
     Configuracao(int id, float p, float d, float i, int16_t velocidade, uint32_t tempo, int32_t erroAcumulado);
-    int id; //savio, idSetor
+    int id;
     float p;
     float d;
     float i;
@@ -23,5 +23,4 @@ class Setting {
   /*essa função aqui faz leitura dos dados por JSON via string, fiz meu próprio parser*/
   public: 
     static bool calibraVeiculo(Configuracao setores[]);
-    static void inicioCalibracao(Configuracao setores[]);
 };
