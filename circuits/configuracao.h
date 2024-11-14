@@ -38,6 +38,8 @@ class Configuracao {
     uint32_t obterErroAcumulado();
     void definirErroAcumulado(uint32_t ea);
 
+    char** resumo();
+
   /*essa função aqui faz leitura dos dados por JSON via string, fiz meu próprio parser*/
   public: 
     static bool calibraRobo(Configuracao setores[]);

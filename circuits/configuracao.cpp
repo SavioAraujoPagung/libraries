@@ -92,3 +92,7 @@ uint32_t Configuracao::obterErroAcumulado(){
 void Configuracao::definirErroAcumulado(uint32_t ea){
   this->erroAcumulado = ea;
 }
+
+char** Configuracao::resumo(){
+  
+}
