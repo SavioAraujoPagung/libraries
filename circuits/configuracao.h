@@ -1,46 +1,47 @@
 #include <SoftwareSerial.h>
-#include <string.h> 
+#include <string.h>
 #include <stdlib.h>
 
 #define FORA 10
 #define QUANTIDADE_SETORES 15
 
-class Configuracao {
-  private:
-    int id;
-    float p;
-    float d;
-    float i;
-    uint32_t velocidade;
-    uint32_t tempo;
-    uint32_t erroAcumulado;
-  
-  public:
-    Configuracao(int id, float p, float d, float i, uint32_t velocidade, uint32_t tempo, uint32_t erroAcumulado);
+class Configuracao
+{
+private:
+  int id;
+  float p;
+  float d;
+  float i;
+  uint32_t velocidade;
+  uint32_t tempo;
+  uint32_t erroAcumulado;
 
-    void definirPorChave(char* chave, char* valor);
-    
-    float obterP();
-    void definirP(float p);
+public:
+  Configuracao(int id, float p, float d, float i, uint32_t velocidade, uint32_t tempo, uint32_t erroAcumulado);
 
-    float obterI();
-    void definirI(float i);
-    
-    float obterD();
-    void definirD(float d);
+  void definirPorChave(char *chave, char *valor);
 
-    uint32_t obterTempo();
-    void definirTempo(uint32_t t);
+  float obterP();
+  void definirP(float p);
 
-    uint32_t obterVelocidade();
-    void definirVelocidade(uint32_t v);
+  float obterI();
+  void definirI(float i);
 
-    uint32_t obterErroAcumulado();
-    void definirErroAcumulado(uint32_t ea);
+  float obterD();
+  void definirD(float d);
 
-    char** resumo();
+  uint32_t obterTempo();
+  void definirTempo(uint32_t t);
+
+  uint32_t obterVelocidade();
+  void definirVelocidade(uint32_t v);
+
+  uint32_t obterErroAcumulado();
+  void definirErroAcumulado(uint32_t ea);
+
+  char **resumo();
 
   /*essa função aqui faz leitura dos dados por JSON via string, fiz meu próprio parser*/
-  public: 
-    static bool calibraRobo(Configuracao setores[]);
+public:
+  static bool calibraRobo(Configuracao setores[]);
 };

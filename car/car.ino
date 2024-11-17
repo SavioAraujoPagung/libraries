@@ -2,9 +2,8 @@
   Autor: Savio Araujo Pagung
 */
 
-#include <line_follower_engine.h>
+#include "sensor.h"
 
-Engine eng(1,2,3);
 
 void setup() {
   // put your setup code here, to run once:

@@ -14,12 +14,12 @@
 
 class Database
 {
-  private: 
-    static void _gravarConfiguracao(char* data);
+private:
+  static void _gravarConfiguracao(char *data);
 
-  public: 
-    static void gravaConfiguracaoSetores(char** datas);
-    static void recuperaConfiguracaoSetores(char** datas);
+public:
+  static void gravaConfiguracaoSetores(char **datas);
+  static void recuperaConfiguracaoSetores(char **datas);
 };
 
 #endif
