@@ -1,5 +1,25 @@
-configuracao    KEYWORD1
+configuracao            KEYWORD1
 
-Configuracao           KEYWORD2
-insereValorCalibracao  KEYWORD2
-inicioCalibracao       KEYWORD2
+Configuracao            KEYWORD2
+definirPorChave         KEYWORD2
+
+obterP                  KEYWORD2
+definirP                KEYWORD2
+
+obterI                  KEYWORD2
+definirI                KEYWORD2
+
+obterD                  KEYWORD2
+definirD                KEYWORD2
+
+obterTempo              KEYWORD2
+definirTempo            KEYWORD2
+
+obterVelocidade         KEYWORD2
+definirVelocidade       KEYWORD2
+
+obterErroAcumulado      KEYWORD2
+definirErroAcumulado    KEYWORD2
+
+resumo                  KEYWORD2
+calibraRobo             KEYWORD2

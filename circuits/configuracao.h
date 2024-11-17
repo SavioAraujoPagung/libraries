@@ -18,7 +18,7 @@ class Configuracao {
   public:
     Configuracao(int id, float p, float d, float i, uint32_t velocidade, uint32_t tempo, uint32_t erroAcumulado);
 
-    void definirPorChave (char* chave, char* valor);
+    void definirPorChave(char* chave, char* valor);
     
     float obterP();
     void definirP(float p);

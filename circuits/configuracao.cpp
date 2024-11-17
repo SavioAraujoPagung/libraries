@@ -93,6 +93,47 @@ void Configuracao::definirErroAcumulado(uint32_t ea){
   this->erroAcumulado = ea;
 }
 
-char** Configuracao::resumo(){
-  
+char **Configuracao::resumo(){
+  char **res;
+
+  res = (char **)malloc(7 * sizeof(char *));
+  if (res == NULL) {
+      printf("Erro ao alocar memória para a linha %d\n", i);
+      return NULL;
+  }
+
+  for (int i = 0; i < 7; i++) {
+    res[i] = (char *) malloc(20 * sizeof(char*));
+    if (res[i] == NULL) {
+        printf("Erro ao alocar memória para a linha %d\n", i);
+        return NULL;
+    }
+
+    switch (i) {
+        case 0:
+            sprintf(res[i], "id:%d", this->id);
+            break;
+        case 1:
+            sprintf(res[i], "p:%.2f", this->p);
+            break;
+        case 2:
+            sprintf(res[i], "i:%.2f", this->i);
+            break;
+        case 3:
+            sprintf(res[i], "d:%.2f", this->d);
+            break;
+        case 4:
+            sprintf(res[i], "velocidade:%d", this->velocidade);
+            break;
+        case 5:
+            sprintf(res[i], "tempo:%d", this->tempo);
+            break;
+        case 6:
+            sprintf(res[i], "i:%d", this->erroAcumulado);
+            break;
+    }
+
+  }
+
+  return res;
 }
