@@ -21,19 +21,19 @@ class Sensor{
         uint16_t adc_read();
         void calibraSensor();
         void leCalibracaoSensorLinha();
-        void check_line();
+        void verificaLinha();
 
     public:
         Sensor();
-        void start_sensor();
+        void iniciaSensor();
         void adc_desativa();
-        bool update_sensor();
-        int16_t get_intensity(int16_t i);
-        int16_t get_debug();
+        bool atualizaSensor();
+        uint8_t obtemIntensidade(uint8_t i);
+        uint8_t get_debug();
         
         static float calculate_error(int16_t a, int16_t b);
-        static bool in_line(int16_t sensor);
-        static bool in_line(int16_t e, int16_t d);
+        static bool in_line(uint8_t sensor);
+        static bool in_line(uint8_t e, uint8_t d);
 };
 
 #endif

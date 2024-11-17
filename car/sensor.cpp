@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include <EEPROM.h>
-#include "line_follower_sensor.h"
+#include "sensor.h"
 
 #define set_bit(y, bit) (y |= (1 << bit))  // coloca em 1 o bit x da variável Y
 #define clt_bit(y, bit) (y &= ~(1 << bit)) // coloca em 0 o bit x da variável Y
@@ -267,7 +267,7 @@ void Sensor::verificaLinha()
   // return saida;
 }
 
-void Sensor::start_sensor()
+void Sensor::iniciaSensor()
 {
 
   //*************************
@@ -369,7 +369,7 @@ void Sensor::start_sensor()
     if (apertoBotao == 1)
     {
       Serial.println("Iniciando calibração...");
-      calibration_sensor();
+      calibraSensor();
     }
     else if (apertoBotao == 2)
     {
@@ -381,7 +381,7 @@ void Sensor::start_sensor()
       debug = 2;
     }
   }
-  read_calibration_sensor_line();
+  leCalibracaoSensorLinha();
   Serial.println("Estado da calibração:");
   Serial.print("Minimo    : ");
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
@@ -426,12 +426,12 @@ void Sensor::start_sensor()
   delay(1000);
 }
 
-bool Sensor::update_sensor()
+bool Sensor::atualizaSensor()
 {
-  check_line();
+  verificaLinha();
 }
 
-uint8_t Sensor::get_intensity(uint8_t i)
+uint8_t Sensor::obtemIntensidade(uint8_t i)
 {
   if (i > (FIM_SENSOR_LINHA - INICIO_SENSOR_LINHA))
     return 0; // erro
@@ -455,7 +455,7 @@ static float Sensor::calculate_error(int16_t a, int16_t b)
   return 0;
 }
 
-static bool Sensor::in_line(int16_t s)
+static bool Sensor::in_line(uint8_t s)
 {
   if (s > _FORA)
     return true;
