@@ -1,6 +1,3 @@
-#include <line_follower_engine.h>
-#include <line_follower_sensor.h>
-
 /*
   Autor: Savio Araujo Pagung
 */
