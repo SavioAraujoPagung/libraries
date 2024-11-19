@@ -1,4 +1,5 @@
-line_follower_engine    KEYWORD1
+motor   KEYWORD1
+sensor  KEYWORD1
 
 Sensor          KEYWORD2
 start_sensor    KEYWORD2

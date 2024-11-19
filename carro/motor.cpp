@@ -1,40 +1,50 @@
 #include "Arduino.h"
 #include "motor.h"
 
-#define MINIMUMPOWER 255
-#define OUTPUT 2 
+#define POTENCIA_MINIMA 255
+#define OUTPUT 2
 #define PINO_LED 13
 
-Motor::Motor(uint8_t  pin_one, uint8_t  pin_two, uint8_t  pwm)
+Motor::Motor(uint8_t pino1, uint8_t pino2, uint8_t pwm)
 {
-    this->_pin_one = pin_one;
-    this->_pin_two = pin_two;
-    this->_pwm = pwm;
-    pinMode(this->_pin_one, OUTPUT);
-    pinMode(this->_pin_two, OUTPUT);
-    pinMode(this->_pwm, OUTPUT);
+  this->pino1 = pino1;
+  this->pino2 = pino2;
+  this->pwm = pwm;
+  pinMode(this->pino1, OUTPUT);
+  pinMode(this->pino2, OUTPUT);
+  pinMode(this->pwm, OUTPUT);
 }
 
-uint8_t Motor::get_pin_one()
+uint8_t Motor::get_pino1()
 {
-  return this->_pin_one;
+  return this->pino1;
 }
 
-uint8_t Motor::get_pin_two()
+uint8_t Motor::get_pino2()
 {
-  return this->_pin_two;
+  return this->pino2;
 }
 
-void Motor::SetPower(int16_t _spped)
+void Motor::set_power(int16_t velocidade)
 {
-    if (_spped > 0)
-    {
-        this->set_speed(1);
-        return;
-    }
-
-    if (_spped < 0)
-    {
-        return;
-    }
+  if (velocidade > 0)
+  {
+    velocidade = constrain(velocidade, 0, POTENCIA_MINIMA);
+    digitalWrite(this->get_pino1(), 1);
+    digitalWrite(pino2, 0);
+    analogWrite(pwm, abs(velocidade));
+  }
+  else if (velocidade < 0)
+  {
+    velocidade = constrain(velocidade, -POTENCIA_MINIMA, 0);
+    digitalWrite(pino1, 0);
+    digitalWrite(pino2, 1);
+    analogWrite(pwm, abs(velocidade));
+  }
+  else
+  {
+    digitalWrite(pino1, 0);
+    digitalWrite(pino2, 0);
+    digitalWrite(pwm, 1);
+  }
 }
