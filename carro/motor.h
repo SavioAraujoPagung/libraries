@@ -10,10 +10,12 @@ class Motor
     void set_power(int16_t velocidade);
     uint8_t get_pino1();
     uint8_t get_pino2();
-
-    uint8_t pino1; 
-    uint8_t pino2;
-    uint8_t pwm;
+    uint8_t get_pwm();
+  
+  private:
+    uint8_t _pino1; 
+    uint8_t _pino2;
+    uint8_t _pwm;
 };
 
 #endif
