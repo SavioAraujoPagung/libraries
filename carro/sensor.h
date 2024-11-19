@@ -22,16 +22,17 @@ class Sensor{
         void calibraSensor();
         void leCalibracaoSensorLinha();
         void verificaLinha();
+        void adc_desativa();
+        uint8_t get_debug();
+
 
     public:
         Sensor();
         void iniciaSensor();
-        void adc_desativa();
         bool atualizaSensor();
         uint8_t obtemIntensidade(uint8_t i);
-        uint8_t get_debug();
         
-        static float calculate_error(int16_t a, int16_t b);
+        static float calcula_error(int16_t a, int16_t b);
         static bool in_line(uint8_t sensor);
         static bool in_line(uint8_t e, uint8_t d);
 };

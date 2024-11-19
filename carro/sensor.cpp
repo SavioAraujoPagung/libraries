@@ -438,7 +438,7 @@ uint8_t Sensor::obtemIntensidade(uint8_t i)
   return intensidadeLeds[i + INICIO_SENSOR_LINHA];
 }
 
-static float Sensor::calculate_error(int16_t a, int16_t b)
+static float Sensor::calcula_error(int16_t a, int16_t b)
 {
   if (a >= _FORA && b >= _FORA)
   { // os dois estão bastante na linha branca
