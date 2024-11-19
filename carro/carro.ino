@@ -3,6 +3,7 @@
 */
 
 #include "sensor.h"
+#include "motor.h"
 
 
 void setup() {

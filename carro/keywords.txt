@@ -9,7 +9,7 @@ get_debug       KEYWORD2
 calculate_error KEYWORD2
 in_line         KEYWORD2
 
-Engine      KEYWORD2
+Motor       KEYWORD2
 get_pin_one KEYWORD2
 get_pin_two KEYWORD2
 SetPower    KEYWORD2

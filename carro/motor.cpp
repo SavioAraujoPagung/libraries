@@ -5,7 +5,7 @@
 #define OUTPUT 2 
 #define PINO_LED 13
 
-Engine::Engine(uint8_t  pin_one, uint8_t  pin_two, uint8_t  pwm)
+Motor::Motor(uint8_t  pin_one, uint8_t  pin_two, uint8_t  pwm)
 {
     this->_pin_one = pin_one;
     this->_pin_two = pin_two;
@@ -15,17 +15,17 @@ Engine::Engine(uint8_t  pin_one, uint8_t  pin_two, uint8_t  pwm)
     pinMode(this->_pwm, OUTPUT);
 }
 
-uint8_t Engine::get_pin_one()
+uint8_t Motor::get_pin_one()
 {
   return this->_pin_one;
 }
 
-uint8_t Engine::get_pin_two()
+uint8_t Motor::get_pin_two()
 {
   return this->_pin_two;
 }
 
-void Engine::SetPower(int16_t _spped)
+void Motor::SetPower(int16_t _spped)
 {
     if (_spped > 0)
     {

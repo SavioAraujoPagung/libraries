@@ -3,10 +3,10 @@
 
 #include <Arduino.h>
 
-class Engine 
+class Motor 
 {
   public :
-    Engine (uint8_t  _pin_one, uint8_t  _pin_two, uint8_t  pwm);
+    Motor (uint8_t  _pin_one, uint8_t  _pin_two, uint8_t  pwm);
     void SetPower(int16_t _speed);
     uint8_t get_pin_one();
     uint8_t get_pin_two();
