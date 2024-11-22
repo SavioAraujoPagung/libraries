@@ -1,25 +1,25 @@
 configuracao            KEYWORD1
 
 Configuracao            KEYWORD2
-definirPorChave         KEYWORD2
+definir_por_chave          KEYWORD2
 
-obterP                  KEYWORD2
-definirP                KEYWORD2
+obter_p                  KEYWORD2
+definir_p                KEYWORD2
 
-obterI                  KEYWORD2
-definirI                KEYWORD2
+obter_i                  KEYWORD2
+definir_i                KEYWORD2
 
 obterD                  KEYWORD2
-definirD                KEYWORD2
+definir_d                KEYWORD2
 
-obterTempo              KEYWORD2
-definirTempo            KEYWORD2
+obter_tempo              KEYWORD2
+definir_tempo            KEYWORD2
 
-obterVelocidade         KEYWORD2
-definirVelocidade       KEYWORD2
+obter_velocidade         KEYWORD2
+definir_velocidade       KEYWORD2
 
-obterErroAcumulado      KEYWORD2
-definirErroAcumulado    KEYWORD2
+obter_erro_acumulado      KEYWORD2
+definir_erro_acumulado    KEYWORD2
 
 resumo                  KEYWORD2
-calibraRobo             KEYWORD2
+calibra_robo             KEYWORD2

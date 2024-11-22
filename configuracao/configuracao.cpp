@@ -11,7 +11,7 @@ Configuracao::Configuracao(int id, float p, float d, float i, uint32_t velocidad
   this->erroAcumulado = erroAcumulado;
 }
 
-void Configuracao::definirPorChave(char *chave, char *valor)
+void Configuracao::definir_por_chave (char *chave, char *valor)
 {
   uint8_t tempUint8;
   float tempFloat;
@@ -53,62 +53,62 @@ void Configuracao::definirPorChave(char *chave, char *valor)
   }
 }
 
-float Configuracao::obterP()
+float Configuracao::obter_p()
 {
   return this->p;
 }
 
-void Configuracao::definirP(float p)
+void Configuracao::definir_p(float p)
 {
   this->p = p;
 }
 
-float Configuracao::obterI()
+float Configuracao::obter_i()
 {
   return this->i;
 }
 
-void Configuracao::definirI(float i)
+void Configuracao::definir_i(float i)
 {
   this->i = i;
 }
 
-float Configuracao::obterD()
+float Configuracao::obter_d()
 {
   return this->d;
 }
 
-void Configuracao::definirD(float d)
+void Configuracao::definir_d(float d)
 {
   this->d = d;
 }
 
-uint32_t Configuracao::obterTempo()
+uint32_t Configuracao::obter_tempo()
 {
   return this->tempo;
 }
 
-void Configuracao::definirTempo(uint32_t t)
+void Configuracao::definir_tempo(uint32_t t)
 {
   this->tempo = t;
 }
 
-uint32_t Configuracao::obterVelocidade()
+uint32_t Configuracao::obter_velocidade()
 {
   return this->velocidade;
 }
 
-void Configuracao::definirVelocidade(uint32_t v)
+void Configuracao::definir_velocidade(uint32_t v)
 {
   this->velocidade = v;
 }
 
-uint32_t Configuracao::obterErroAcumulado()
+uint32_t Configuracao::obter_erro_acumulado()
 {
   return this->erroAcumulado;
 }
 
-void Configuracao::definirErroAcumulado(uint32_t ea)
+void Configuracao::definir_erro_acumulado(uint32_t ea)
 {
   this->erroAcumulado = ea;
 }
