@@ -60,7 +60,7 @@ uint16_t Sensor::adc_read()
 }
 
 // a calibração é primeiro no PRETO, depois no BRANCO
-void Sensor::calibraSensor()
+void Sensor::calibra_sensor()
 {
   uint16_t temp;
   // calibra e grava no EEPROM os valores do branco e do preto
@@ -138,7 +138,7 @@ void Sensor::calibraSensor()
   }
 }
 
-void Sensor::leCalibracaoSensorLinha()
+void Sensor::le_calibracao_sensor_linha()
 {
   uint16_t temp;
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
@@ -155,7 +155,7 @@ void Sensor::leCalibracaoSensorLinha()
   }
 }
 
-void Sensor::verificaLinha()
+void Sensor::verifica_linha()
 {
   int32_t conta;
   uint8_t saida = 0;
@@ -267,7 +267,7 @@ void Sensor::verificaLinha()
   // return saida;
 }
 
-void Sensor::iniciaSensor()
+void Sensor::inicia_sensor()
 {
 
   //*************************
@@ -369,7 +369,7 @@ void Sensor::iniciaSensor()
     if (apertoBotao == 1)
     {
       Serial.println("Iniciando calibração...");
-      calibraSensor();
+      calibra_sensor();
     }
     else if (apertoBotao == 2)
     {
@@ -381,7 +381,7 @@ void Sensor::iniciaSensor()
       debug = 2;
     }
   }
-  leCalibracaoSensorLinha();
+  le_calibracao_sensor_linha();
   Serial.println("Estado da calibração:");
   Serial.print("Minimo    : ");
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
@@ -426,12 +426,12 @@ void Sensor::iniciaSensor()
   delay(1000);
 }
 
-bool Sensor::atualizaSensor()
+bool Sensor::atualiza_sensor()
 {
-  verificaLinha();
+  verifica_linha();
 }
 
-uint8_t Sensor::obtemIntensidade(uint8_t i)
+uint8_t Sensor::obtem_intensidade(uint8_t i)
 {
   if (i > (FIM_SENSOR_LINHA - INICIO_SENSOR_LINHA))
     return 0; // erro
@@ -455,7 +455,7 @@ static float Sensor::calcula_error(int16_t a, int16_t b)
   return 0;
 }
 
-static bool Sensor::in_line(uint8_t s)
+static bool Sensor::na_linha(uint8_t s)
 {
   if (s > _FORA)
     return true;
@@ -463,7 +463,7 @@ static bool Sensor::in_line(uint8_t s)
     return false;
 }
 
-static bool Sensor::in_line(uint8_t e, uint8_t d)
+static bool Sensor::na_linha(uint8_t e, uint8_t d)
 {
   if (d > _FORA || e > _FORA)
     return true;

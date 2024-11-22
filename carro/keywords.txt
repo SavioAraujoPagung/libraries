@@ -8,7 +8,7 @@ update_sensor   KEYWORD2
 get_intensity   KEYWORD2
 get_debug       KEYWORD2
 calculate_error KEYWORD2
-in_line         KEYWORD2
+na_linha         KEYWORD2
 
 Motor       KEYWORD2
 get_pin_one KEYWORD2
