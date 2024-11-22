@@ -1,3 +1,6 @@
+#ifndef configuracao
+#define configuracao
+
 #include <SoftwareSerial.h>
 #include <string.h>
 #include <stdlib.h>
@@ -43,3 +46,5 @@ public:
 
   static bool calibra_robo(Configuracao setores[]);
 };
+
+#endif

@@ -1,3 +1,5 @@
+#include "configuracao.h"
+
 /*
   Autor: Savio Araujo Pagung
 */
