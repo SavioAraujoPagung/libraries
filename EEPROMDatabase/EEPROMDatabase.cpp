@@ -6,13 +6,13 @@
 #define ENDERECO_PULSOS_MARCACAO 194
 #define QUANTIDADE_SETORES 15
 
-static void Database::gravar_configuracao(char *data)
+static void Database::_gravarConfiguracao(char *data)
 {
   uint16_t posicaoMemoria = ENDERECO_BASE + sizeof(char) * sizeof(data);
   EEPROM.put(posicaoMemoria, data);
 }
 
-static void Database::grava_configuracao_setores(char **datas)
+static void Database::gravaConfiguracaoSetores(char **datas)
 {
   if (datas == NULL)
   {
@@ -25,11 +25,11 @@ static void Database::grava_configuracao_setores(char **datas)
 
   for (uint16_t i = 0; i < QUANTIDADE_SETORES; i++)
   {
-    gravar_configuracao(datas[i]);
+    _gravarConfiguracao(datas[i]);
   }
 }
 
-static void Database::recupera_configuracao_setores(char **datas)
+static void Database::recuperaConfiguracaoSetores(char **datas)
 {
   int zero;
   zero = 0;

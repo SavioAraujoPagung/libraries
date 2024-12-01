@@ -1,4 +1,4 @@
 EEPROMDatabase              KEYWORD1
 
-grava_configuracao_setores    KEYWORD2
-recupera_configuracao_setores KEYWORD2
+gravaConfiguracaoSetores    KEYWORD2
+recuperaConfiguracaoSetores KEYWORD2

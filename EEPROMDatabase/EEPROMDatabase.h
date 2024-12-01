@@ -7,11 +7,11 @@
 class Database
 {
 private:
-  static void gravar_configuracao(char *data);
+  static void _gravarConfiguracao(char *data);
 
 public:
-  static void grava_configuracao_setores(char **datas);
-  static void recupera_configuracao_setores(char **datas);
+  static void gravaConfiguracaoSetores(char **datas);
+  static void recuperaConfiguracaoSetores(char **datas);
 };
 
 #endif
