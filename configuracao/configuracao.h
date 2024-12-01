@@ -11,40 +11,40 @@
 class Configuracao
 {
 private:
-  int id;
-  float p;
-  float d;
-  float i;
-  uint32_t velocidade;
-  uint32_t tempo;
-  uint32_t erroAcumulado;
+  int _id;
+  float _p;
+  float _d;
+  float _i;
+  uint32_t _velocidade;
+  uint32_t _tempo;
+  uint32_t _erroAcumulado;
 
 public:
   Configuracao(int id, float p, float d, float i, uint32_t velocidade, uint32_t tempo, uint32_t erroAcumulado);
 
-  void definir_por_chave(char *chave, char *valor);
+  void definirPorChave(char *chave, char *valor);
 
-  float obter_p();
-  void definir_p(float p);
+  float obterP();
+  void definirP(float p);
 
-  float obter_i();
-  void definir_i(float i);
+  float obterI();
+  void definirI(float i);
 
-  float obter_d();
-  void definir_d(float d);
+  float obterD();
+  void definirD(float d);
 
-  uint32_t obter_tempo();
-  void definir_tempo(uint32_t t);
+  uint32_t obterTempo();
+  void definirTempo(uint32_t t);
 
-  uint32_t obter_velocidade();
-  void definir_velocidade(uint32_t v);
+  uint32_t obterVelocidade();
+  void definirVelocidade(uint32_t v);
 
-  uint32_t obter_erro_acumulado();
-  void definir_erro_acumulado(uint32_t ea);
+  uint32_t obterErroAcumulado();
+  void definirErroAcumulado(uint32_t ea);
 
   char **resumo();
 
-  static bool calibra_robo(Configuracao setores[]);
+  static bool calibraRobo(Configuracao setores[]);
 };
 
 #endif
