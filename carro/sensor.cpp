@@ -20,35 +20,35 @@ Sensor::Sensor()
   debug = 0;
 }
 
-uint8_t Sensor::get_debug()
+uint8_t Sensor::_getDebug()
 {
   return this->debug;
 }
 
-void Sensor::adc_desativa()
+void Sensor::_adcDesativa()
 {
   clt_bit(ADCSRA, ADEN);
 }
 
-void Sensor::adc_muda_porta(int16_t porta)
+void Sensor::_adcMudaPorta(int16_t porta)
 {
-  // adc_desativa();
+  // _adcDesativa();
   porta &= 0b00000111;            // AND operation with 7
   ADMUX = (ADMUX & 0xF0) | porta; // clears the bottom 3 bits before ORing
 }
 
-void Sensor::adc_liga_gnd()
+void Sensor::_adcLigaGnd()
 {
   ADMUX = (ADMUX & 0xF0) | 0b00001111;
   _delay_us(2);
 }
 
-void Sensor::adc_ativa()
+void Sensor::_adcAtiva()
 {
   set_bit(ADCSRA, ADEN);
 }
 
-uint16_t Sensor::adc_read()
+uint16_t Sensor::_adcRead()
 {
   uint16_t temp;
   set_bit(ADCSRA, ADSC);
@@ -60,7 +60,7 @@ uint16_t Sensor::adc_read()
 }
 
 // a calibração é primeiro no PRETO, depois no BRANCO
-void Sensor::calibra_sensor()
+void Sensor::_calibraSensor()
 {
   uint16_t temp;
   // calibra e grava no EEPROM os valores do branco e do preto
@@ -79,10 +79,10 @@ void Sensor::calibra_sensor()
     {
       for (uint8_t j = INICIO_SENSOR_LINHA; j <= FIM_SENSOR_LINHA; j++)
       {
-        adc_liga_gnd();
-        adc_muda_porta(j);
-        adc_read();
-        leitura[j] += adc_read();
+        _adcLigaGnd();
+        _adcMudaPorta(j);
+        _adcRead();
+        leitura[j] += _adcRead();
         quantidade[j]++;
       }
       delay(1);
@@ -111,10 +111,10 @@ void Sensor::calibra_sensor()
     {
       for (uint8_t j = INICIO_SENSOR_LINHA; j <= FIM_SENSOR_LINHA; j++)
       {
-        adc_liga_gnd();
-        adc_muda_porta(j);
-        adc_read();
-        leitura[j] += adc_read();
+        _adcLigaGnd();
+        _adcMudaPorta(j);
+        _adcRead();
+        leitura[j] += _adcRead();
         quantidade[j]++;
       }
       delay(1);
@@ -138,7 +138,7 @@ void Sensor::calibra_sensor()
   }
 }
 
-void Sensor::le_calibracao_sensor_linha()
+void Sensor::_leCalibracaoSensorLinha()
 {
   uint16_t temp;
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
@@ -155,7 +155,7 @@ void Sensor::le_calibracao_sensor_linha()
   }
 }
 
-void Sensor::verifica_linha()
+void Sensor::_verificaLinha()
 {
   int32_t conta;
   uint8_t saida = 0;
@@ -212,15 +212,15 @@ void Sensor::verifica_linha()
     Serial.println(" ");
     Serial.print("Sensor de linha: ");
   }
-  // adc_ativa();
+  // _adcAtiva();
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
   {
-    adc_liga_gnd();
-    adc_read();
-    adc_muda_porta(j);
-    adc_read();
+    _adcLigaGnd();
+    _adcRead();
+    _adcMudaPorta(j);
+    _adcRead();
 
-    valorBruto[j] = adc_read();
+    valorBruto[j] = _adcRead();
     conta = valorBruto[j] - minimo[j];
     conta = constrain(conta, 0, 1023);
     conta *= 100;
@@ -231,8 +231,8 @@ void Sensor::verifica_linha()
     // para fundo preto e linha branca
     intensidadeLeds[j] = 100 - constrain(conta, 0, 100); // sensor com lógica invertida
   }
-  adc_liga_gnd();
-  // adc_desativa();
+  _adcLigaGnd();
+  // _adcDesativa();
   if (debug == 1)
   {
     // Serial.print(" ");
@@ -267,7 +267,7 @@ void Sensor::verifica_linha()
   // return saida;
 }
 
-void Sensor::inicia_sensor()
+void Sensor::iniciaSensor()
 {
 
   //*************************
@@ -301,7 +301,7 @@ void Sensor::inicia_sensor()
   // bateria -=150;
   bateria = constrain(bateria, 0, 50);
   bateria *= 2; // regra de três pra dar em %
-  // if(adc_read() <= 323){
+  // if(_adcRead() <= 323){
   Serial.print(bateria);
   Serial.println("%");
   if (bateria <= 5)
@@ -326,8 +326,8 @@ void Sensor::inicia_sensor()
   ADCSRA = (0 << ADEN) | (0 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
   // desativa free running do adc
   clt_bit(ADCSRA, ADATE);
-  adc_liga_gnd();
-  adc_ativa();
+  _adcLigaGnd();
+  _adcAtiva();
   for (uint8_t j = 0; j < 8; j++)
   { // assim garanto que vou trocar esses valores
     minimo[j] = 2000;
@@ -369,7 +369,7 @@ void Sensor::inicia_sensor()
     if (apertoBotao == 1)
     {
       Serial.println("Iniciando calibração...");
-      calibra_sensor();
+      _calibraSensor();
     }
     else if (apertoBotao == 2)
     {
@@ -381,7 +381,7 @@ void Sensor::inicia_sensor()
       debug = 2;
     }
   }
-  le_calibracao_sensor_linha();
+  _leCalibracaoSensorLinha();
   Serial.println("Estado da calibração:");
   Serial.print("Minimo    : ");
   for (int8_t j = FIM_SENSOR_LINHA; j >= INICIO_SENSOR_LINHA; j--)
@@ -426,19 +426,19 @@ void Sensor::inicia_sensor()
   delay(1000);
 }
 
-bool Sensor::atualiza_sensor()
+bool Sensor::atualizaSensor()
 {
-  verifica_linha();
+  _verificaLinha();
 }
 
-uint8_t Sensor::obtem_intensidade(uint8_t i)
+uint8_t Sensor::obtemIntensidade(uint8_t i)
 {
   if (i > (FIM_SENSOR_LINHA - INICIO_SENSOR_LINHA))
     return 0; // erro
   return intensidadeLeds[i + INICIO_SENSOR_LINHA];
 }
 
-static float Sensor::calcula_error(int16_t a, int16_t b)
+static float Sensor::calculaError(int16_t a, int16_t b)
 {
   if (a >= _FORA && b >= _FORA)
   { // os dois estão bastante na linha branca
@@ -455,7 +455,7 @@ static float Sensor::calcula_error(int16_t a, int16_t b)
   return 0;
 }
 
-static bool Sensor::na_linha(uint8_t s)
+static bool Sensor::naLinha(uint8_t s)
 {
   if (s > _FORA)
     return true;
@@ -463,7 +463,7 @@ static bool Sensor::na_linha(uint8_t s)
     return false;
 }
 
-static bool Sensor::na_linha(uint8_t e, uint8_t d)
+static bool Sensor::naLinha(uint8_t e, uint8_t d)
 {
   if (d > _FORA || e > _FORA)
     return true;

@@ -3,12 +3,12 @@ sensor  KEYWORD1
 
 Sensor          KEYWORD2
 start_sensor    KEYWORD2
-adc_desativa    KEYWORD2
+_adcDesativa    KEYWORD2
 update_sensor   KEYWORD2
 get_intensity   KEYWORD2
-get_debug       KEYWORD2
+_getDebug       KEYWORD2
 calculate_error KEYWORD2
-na_linha         KEYWORD2
+naLinha         KEYWORD2
 
 Motor       KEYWORD2
 get_pin_one KEYWORD2
